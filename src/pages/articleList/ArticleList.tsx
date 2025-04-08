@@ -1,6 +1,7 @@
-import '@src/App.css'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import '@pages/articleList/articleList.css';
+import data from '@assets/constants.json'
 
 interface Article {
   id: number,
@@ -27,7 +28,7 @@ const ArticleList: React.FC = () => {
 
   return (
     <div className="card">
-      <p>Article Lists</p>
+      <p>{data.articleListHeading}</p>
       <ul>
         {articles.map((article) => JSON.stringify(article))}
       </ul>

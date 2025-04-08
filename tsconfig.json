@@ -6,6 +6,7 @@
     "jsx": "react-jsx",  // Use this for React 17 and later
     "strict": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "types": ["jest", "node"], // Add jest to include Jest types
