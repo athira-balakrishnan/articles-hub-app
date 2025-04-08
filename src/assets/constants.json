@@ -1,4 +1,4 @@
 {
-    "appName": "Article Hub",
-    "articleListHeading": "NY Times Most Popular Articles"
+    "articleListHeading": "NY Times Most Popular Articles",
+    "notFound" : "Oops! Page Not Found"
 }

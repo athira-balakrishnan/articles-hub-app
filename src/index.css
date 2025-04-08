@@ -13,11 +13,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+ /* Mobile devices */
 body {
   margin: 0;
   display: flex;
   min-width: 320px;
   height: 100vh;
-  font-size: 1em;
+  font-size: .8rem;
 }
 
+/* Tablet devices */
+@media (min-width: 768px) {
+  body {
+    font-size: 1rem;  
+  }
+}
+
+ /* Desktop devices */
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.1rem; 
+  }
+}

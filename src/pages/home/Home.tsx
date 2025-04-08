@@ -1,10 +1,11 @@
 import React from 'react';
+import constants from '@assets/constants.json';
 
-const Home : React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <div>
-      Home
-    </div>
+      <div>
+        {constants.articleListHeading}
+      </div>
   )
 }
 

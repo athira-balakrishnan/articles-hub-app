@@ -1,13 +1,18 @@
 import React from 'react';
-import Header from '@src/components/header/Header'
-import PageContent from '@src/components/pageContent/PageContent'
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouter from '@src/components/routes/Routes'
+import Nav from '@src/components/nav/Nav'
 import '@src/App.css'
 
 const App: React.FC = () => {
   return (
-    <div className="page">
-      <Header/>
-      <PageContent />
+    <div className="app-wrapper">
+      <Router>
+        <div className="app-header">
+          <Nav />
+        </div>
+        <AppRouter />
+      </Router>
     </div>
   )
 }

@@ -1,0 +1,7 @@
+.atriclecard-wrapper {
+    display: flex;
+}
+
+.atriclecard-content {
+    margin: 0 1rem;
+}

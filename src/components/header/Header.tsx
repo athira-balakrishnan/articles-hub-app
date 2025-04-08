@@ -1,11 +1,14 @@
 import React from 'react';
-import data from '@assets/constants.json'
 import '@components/Header/header.css'
 
-const Header : React.FC = () => {
+interface HeaderProp {
+  children: string;
+}
+
+const Header : React.FC<HeaderProp> = ({children}) => {
   return (
     <div className='appHeader'>
-      {data.appName}
+      {children}
     </div>
   )
 }

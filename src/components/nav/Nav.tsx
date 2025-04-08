@@ -4,10 +4,9 @@ import '@components/nav/nav.css';
 
 const Nav: React.FC = () => {
   return (
-    <nav className='nav'>
+    <nav className='nav-wrapper'>
       <Link to="/">Home</Link>
       <Link to="/list">Article List</Link>
-      <Link to="/search">Search</Link>
     </nav>
   );
 };
