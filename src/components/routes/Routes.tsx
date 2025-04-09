@@ -8,7 +8,7 @@ import ArticleDetails from '@src/pages/articleDetails/ArticleDetails';
 
 const AppRouter: React.FC = () => {
   return (
-    <div className='routes-container'>
+    <div className='routes-wrapper'>
       <Routes>
         <Route path="/" element={<ArticleList />} />
         <Route path="/home" element={<Home />} />

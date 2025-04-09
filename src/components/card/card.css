@@ -1,4 +1,4 @@
-.card {
+.card-wrapper {
     width: 100%;
     box-sizing: border-box;
     padding: 2rem;
@@ -10,7 +10,7 @@
     margin: 10px 0;
 }
 
-.card:hover {
+.card-wrapper:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     background-color: beige;
     cursor: pointer;

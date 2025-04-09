@@ -7,7 +7,7 @@ interface HeaderProp {
 
 const Header : React.FC<HeaderProp> = ({children}) => {
   return (
-    <div className='appHeader'>
+    <div className='header-wrapper'>
       {children}
     </div>
   )

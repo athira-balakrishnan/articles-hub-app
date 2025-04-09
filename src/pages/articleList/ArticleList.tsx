@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '@pages/articleList/articleList.css';
-// import data from '@assets/data.json'
 import Card from '@components/card/Card';
 import ArticleCard from '@components/articleCard/ArticleCard';
 import Header from '@components/header/Header';

@@ -7,7 +7,7 @@ interface SubTitleProp {
 
 const SubTitle : React.FC<SubTitleProp> = ({children}) => {
   return (
-    <span className='subtitle'>
+    <span className='subtitle-wrapper'>
       {children}
     </span>
   )
