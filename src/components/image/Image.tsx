@@ -32,9 +32,9 @@ const ImageComponent: React.FC<ImageProp> = ({ src, caption, copyright }) => {
             <span>
                 <i>
                     <SubTitle>{caption}</SubTitle>
-                    <b>
+                    {copyright && <b>
                         <SubTitle>{`© ${copyright} All rights reserved. `}</SubTitle>
-                    </b>
+                    </b>}
                 </i>
             </span>
         </div>

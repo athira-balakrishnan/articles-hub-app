@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import '@pages/articleList/articleList.css';
-import data from '@assets/data.json'
-import Card from '@src/components/card/Card';
-import ArticleCard from '@src/components/articleCard/ArticleCard';
-import Header from '@src/components/header/Header';
+// import data from '@assets/data.json'
+import Card from '@components/card/Card';
+import ArticleCard from '@components/articleCard/ArticleCard';
+import Header from '@components/header/Header';
 import constants from '@assets/constants.json';
-import SectionText from '@src/components/sectionText/SectionText';
-import LoaderList from '@src/components/loaderList/LoaderList';
+import apiEndpoints from '@apis/apiEndpoints.json';
+import SectionText from '@components/sectionText/SectionText';
+import LoaderList from '@components/loaderList/LoaderList';
+import { getData } from '@apis/apiWrapper';
+import ErrorComponent from '@components/errorComponent/ErrorComponent';
 
 export interface Article {
   id: number,
@@ -41,51 +43,55 @@ interface MediaMetaData {
 const ArticleList: React.FC = () => {
 
   const [articles, setArticles] = useState<Article[]>([]);
-  const [lodading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [errorInData, setErrorInData] = useState<boolean>(false);
+  const [error, setError] = useState<any>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setLoading(true);
-    getArticleList();
+    getmostViewedArticles();
   }, [])
 
-  const getArticleList = async () => {
-    // await axios.get('testurl')
-    //   .then((response) => {
-    //     const data: Article[] = response.data.results.map((item: Article) => ({ id: item.id, title: item.title }))
-    //     setArticles(data);
-    //   })
-    //   .catch(() => { })
+  const getmostViewedArticles = async () => {
+    try {
+      setLoading(true);
+      const data = await getData(apiEndpoints.getmostViewedArticles);
 
-    const getMetadata = (item: MediaMetaData[]) => item.map((metadata: MediaMetaData) => ({
-      url: metadata.url,
-      format: metadata.format,
-      height: metadata.height,
-      width: metadata.width,
-    }));
+      const getMetadata = (item: MediaMetaData[]) => item.map((metadata: MediaMetaData) => ({
+        url: metadata.url,
+        format: metadata.format,
+        height: metadata.height,
+        width: metadata.width,
+      }));
 
-    const getMedia = (item: Media[]) => item.map((mediaItem: Media, index: number) => ({
-      type: mediaItem.type,
-      caption: mediaItem.caption,
-      copyright: mediaItem.copyright,
-      'media-metadata': getMetadata(mediaItem['media-metadata']),
-    }));
+      const getMedia = (item: Media[]) => item.map((mediaItem: Media, index: number) => ({
+        type: mediaItem.type,
+        caption: mediaItem.caption,
+        copyright: mediaItem.copyright,
+        'media-metadata': getMetadata(mediaItem['media-metadata']),
+      }));
 
-    const results: Article[] = data.results.map((item) => ({
-      id: item.id,
-      title: item.title,
-      type: item.type,
-      source: item.source,
-      published_date: item.published_date,
-      abstract: item.abstract,
-      updated: item.updated,
-      byline: item.byline,
-      section: item.section,
-      subsection: item.subsection,
-      media: getMedia(item.media),
-    }));
-    setArticles(results);
-    setLoading(false);
+      const results: Article[] = data.results.map((item: Article) => ({
+        id: item.id,
+        title: item.title,
+        type: item.type,
+        source: item.source,
+        published_date: item.published_date,
+        abstract: item.abstract,
+        updated: item.updated,
+        byline: item.byline,
+        section: item.section,
+        subsection: item.subsection,
+        media: getMedia(item.media),
+      }));
+      setArticles(results);
+    } catch (err) {
+      setErrorInData(true)
+      setError(err);
+    }
+    finally {
+      setLoading(false);
+    }
   }
 
   const handleRoute = () => {
@@ -97,15 +103,18 @@ const ArticleList: React.FC = () => {
       <Header>{constants.articleListHeading}</Header>
       <SectionText>{constants.MVdescription}</SectionText>
       {
-        lodading ? <LoaderList /> : articles.map((article) => {
-          return (
-            <div key={`card${article.id}`}>
-              <Card>
-                <ArticleCard articleCardDetails={article} handleRoute={handleRoute} />
-              </Card>
-            </div>
-          )
-        })}
+        loading ? <LoaderList />
+          : (errorInData ? <ErrorComponent error={{status: error.response.status, statusMessage:error.response.statusText}} /> : articles.map((article) => {
+            {
+              return (
+                <div key={`card${article.id}`}>
+                  <Card>
+                    <ArticleCard articleCardDetails={article} handleRoute={handleRoute} />
+                  </Card>
+                </div>)
+            }
+          }))
+      }
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@src/components/header/Header';
-import NotFound from '../notFound/NotFound';
+import NotFound from '@src/components/notFound/NotFound';
 import { useSelectedItem } from '@hooks/useSelectedItem';
 import Button from '@src/components/Button/Button';
 import constants from '@assets/constants.json';
