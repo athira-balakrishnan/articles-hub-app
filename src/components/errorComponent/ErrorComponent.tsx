@@ -1,33 +1,37 @@
-import React from 'react';
-import NotFound from '@components/notFound/NotFound';
-import constants from '@assets/constants.json';
+import React, { ReactElement } from 'react'
+import NotFound from '@components/notFound/NotFound'
+import constants from '@assets/constants.json'
 
 interface ErrorProp {
-  error: ErrorType;
+  error: ErrorType
 }
 
-interface ErrorType {
-  status: number;
-  statusMessage: string;
+export interface ErrorType {
+  status: number
+  statusMessage: string
 }
 
-const ErrorComponent: React.FC<ErrorProp> = ({error}) => {
-  const renderErrorBlock = () => {
+enum StatusCode {
+  Unauthorized = 401,
+  NotFound = 404,
+  Unexpected = 500,
+}
+
+const ErrorComponent: React.FC<ErrorProp> = ({ error }) => {
+  const renderErrorBlock = (): ReactElement => {
     switch (error.status) {
-      case 401:
+      case StatusCode.Unauthorized:
         return <NotFound errorText={constants.unauthorized} />
-      case 404:
+      case StatusCode.NotFound:
         return <NotFound errorText={constants.notFound} />
-      case 500:
+      case StatusCode.Unexpected:
         return <NotFound errorText={constants.unexpectedError} />
       default:
         return <NotFound errorText={constants.unexpectedError} />
     }
-  };
+  }
 
-  return (
-    renderErrorBlock()
-  )
+  return renderErrorBlock()
 }
 
-export default ErrorComponent;
+export default ErrorComponent

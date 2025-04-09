@@ -17,10 +17,10 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,  // Set the development server port
+    port: 3000, // Set the development server port
   },
   build: {
-    outDir: 'build',  // Specify the output directory for production build
-    sourcemap: true,  // Enable source maps for easier debugging
+    outDir: 'build', // Specify the output directory for production build
+    sourcemap: true, // Enable source maps for easier debugging
   },
 })
