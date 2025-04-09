@@ -22,10 +22,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ articleCardDetails, handleRou
 
   return (
     <div className='atriclecard-wrapper' onClick={updateContext}>
-      {/* <div>
-        <img src={articleCardProps.media[0]['media-metadata'][0].url} alt="Media content" style={{ width: '140', height: '210' }} />
-        <span><i>{articleCardProps.media[0].caption}</i></span>
-      </div> */}
       <div className='atriclecard-content'>  <Header>{articleCardDetails.title}</Header>
         <SubTitle>{`${articleCardDetails.type} | ${articleCardDetails.source} | ${articleCardDetails.published_date}`}</SubTitle>
         <SectionText>{articleCardDetails.abstract}</SectionText>

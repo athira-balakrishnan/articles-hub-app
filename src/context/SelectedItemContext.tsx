@@ -6,7 +6,7 @@ export interface SelectedItemContextType {
   selectItem: (item: Article) => void;
 }
 
-export const SelectedItemContext = createContext<SelectedItemContextType | undefined>(undefined);
+export const SelectedItemContext = createContext<SelectedItemContextType | null>(null);
 
 export const SelectedItemProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [selectedItem, setSelectedItem] = useState<Article | null>(null);
