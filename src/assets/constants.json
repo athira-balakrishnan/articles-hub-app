@@ -1,4 +1,6 @@
 {
     "articleListHeading": "NY Times Most Popular Articles",
-    "notFound" : "Oops! Page Not Found"
+    "notFound" : "Oops! Page Not Found",
+    "MVdescription": "Explore the latest and most popular articles, curated based on the highest views, to keep you informed and engaged.",
+    "back": "Go Back"
 }

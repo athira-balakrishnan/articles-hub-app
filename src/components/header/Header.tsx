@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import '@components/Header/header.css'
 
 interface HeaderProp {
-  children: string;
+  children: string | ReactElement;
 }
 
 const Header : React.FC<HeaderProp> = ({children}) => {

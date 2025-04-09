@@ -15,7 +15,9 @@
       "@src/*": ["src/*"],
       "@components/*": ["src/components/*"], // Map @components to src/components
       "@assets/*": ["src/assets/*"],         // Map @assets to src/assets
-      "@pages/*": ["src/pages/*"],            // Map @utils to src/utils
+      "@pages/*": ["src/pages/*"],            // Map @pages to src/pages
+      "@hooks/*": ["src/hooks/*"],            // Map @hooks to src/hooks
+      "@context/*": ["src/context/*"],            // Map @context to src/context
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.d.ts"]

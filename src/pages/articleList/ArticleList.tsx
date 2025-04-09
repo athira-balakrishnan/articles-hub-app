@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '@pages/articleList/articleList.css';
 import data from '@assets/data.json'
 import Card from '@src/components/card/Card';
 import ArticleCard from '@src/components/articleCard/ArticleCard';
+import Header from '@src/components/header/Header';
+import constants from '@assets/constants.json';
+import SectionText from '@src/components/sectionText/SectionText';
+import LoaderList from '@src/components/loaderList/LoaderList';
 
 export interface Article {
   id: number,
@@ -36,8 +41,11 @@ interface MediaMetaData {
 const ArticleList: React.FC = () => {
 
   const [articles, setArticles] = useState<Article[]>([]);
+  const [lodading, setLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true);
     getArticleList();
   }, [])
 
@@ -48,23 +56,22 @@ const ArticleList: React.FC = () => {
     //     setArticles(data);
     //   })
     //   .catch(() => { })
-    console.log('results', data.results)
 
-    const getMetadata = (item:MediaMetaData[]) => item.map((metadata: MediaMetaData) => ({
+    const getMetadata = (item: MediaMetaData[]) => item.map((metadata: MediaMetaData) => ({
       url: metadata.url,
       format: metadata.format,
       height: metadata.height,
       width: metadata.width,
     }));
 
-    const getMedia = (item:Media[] ) => item.map((mediaItem: Media,index: number) => ({
+    const getMedia = (item: Media[]) => item.map((mediaItem: Media, index: number) => ({
       type: mediaItem.type,
       caption: mediaItem.caption,
       copyright: mediaItem.copyright,
       'media-metadata': getMetadata(mediaItem['media-metadata']),
     }));
 
-    const results:Article[] = data.results.map((item) => ({
+    const results: Article[] = data.results.map((item) => ({
       id: item.id,
       title: item.title,
       type: item.type,
@@ -77,17 +84,27 @@ const ArticleList: React.FC = () => {
       subsection: item.subsection,
       media: getMedia(item.media),
     }));
-    console.log('results', results)
     setArticles(results);
+    setLoading(false);
+  }
 
-
+  const handleRoute = () => {
+    navigate('/details')
   }
 
   return (
     <div>
+      <Header>{constants.articleListHeading}</Header>
+      <SectionText>{constants.MVdescription}</SectionText>
       {
-        articles.map((article) => {
-          return (<Card key={`card${article.id}`}><ArticleCard articleCardProps={article} /></Card>)
+        lodading ? <LoaderList /> : articles.map((article) => {
+          return (
+            <div key={`card${article.id}`}>
+              <Card>
+                <ArticleCard articleCardDetails={article} handleRoute={handleRoute} />
+              </Card>
+            </div>
+          )
         })}
     </div>
   )

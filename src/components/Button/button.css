@@ -1,0 +1,14 @@
+.button-wrapper {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: .5rem 0;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.button-wrapper:hover {
+    opacity: .7;
+    background-color: beige;
+    cursor: pointer;
+}
