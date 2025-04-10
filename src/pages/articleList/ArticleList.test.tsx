@@ -5,9 +5,6 @@ import { SelectedItemProvider } from '@src/context/SelectedItemProvider';
 import ArticleList from './ArticleList';
 import { getData } from '@apis/apiWrapper';
 
-// const getData = jest.fn();
-
-// Mock constants and components
 jest.mock('@assets/constants.json', () => ({
   articleListHeading: 'Test Article List',
   MVdescription: 'Test Description',
@@ -25,18 +22,6 @@ jest.mock('@apis/apiWrapper', () => ({
 
 const mockedGetData = getData as jest.Mock;
 
-// jest.mock('@components/card/Card', () => ({ children }) => <div>{children}</div>);
-// jest.mock('@components/articleCard/ArticleCard', () => ({ articleCardDetails }) => (
-//   <div>{articleCardDetails.title}</div>
-// ));
-// jest.mock('@components/header/Header', () => ({ children }) => <header>{children}</header>);
-// jest.mock('@components/sectionText/SectionText', () => ({ children }) => <section>{children}</section>);
-// jest.mock('@components/loaderList/LoaderList', () => () => <div>Loading...</div>);
-// jest.mock('@components/errorComponent/ErrorComponent', () => ({ error }) => (
-//   <div>Error: {error.statusMessage}</div>
-// ));
-
-// Mock API response
 const mockArticles = [
   {
     "uri": "nyt://article/a543f8f6-8ba7-51c1-a933-07995a295f03",
@@ -154,7 +139,6 @@ describe('ArticleList Component', () => {
       </SelectedItemProvider>);
     });
 
-    // Wait for error message to be displayed
     await waitFor(() => expect(screen.getByText('An unexpected error occurred')).toBeInTheDocument());
   });
 
@@ -168,17 +152,11 @@ describe('ArticleList Component', () => {
       </SelectedItemProvider>);
     });
 
-    // Wait for article to be displayed
     await waitFor(() => {
       const articleCard = screen.getByText(mockArticles[0].title);
       expect(articleCard).toBeInTheDocument();
 
-      // Simulate click event
       fireEvent.click(articleCard);
-
-      // Add your navigation assertion here
-      // For example, if you use 'useNavigate' from 'react-router-dom':
-      // expect(mockNavigate).toHaveBeenCalledWith('/details');
     });
   });
 });
