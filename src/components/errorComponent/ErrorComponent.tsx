@@ -1,14 +1,14 @@
-import React, { ReactElement } from 'react'
-import NotFound from '@components/notFound/NotFound'
-import constants from '@assets/constants.json'
+import React, { ReactElement } from 'react';
+import NotFound from '@components/notFound/NotFound';
+import constants from '@assets/constants.json';
 
 interface ErrorProp {
-  error: ErrorType
+  error: ErrorType;
 }
 
 export interface ErrorType {
-  status: number
-  statusMessage: string
+  status: number;
+  statusMessage: string;
 }
 
 enum StatusCode {
@@ -21,17 +21,17 @@ const ErrorComponent: React.FC<ErrorProp> = ({ error }) => {
   const renderErrorBlock = (): ReactElement => {
     switch (error.status) {
       case StatusCode.Unauthorized:
-        return <NotFound errorText={constants.unauthorized} />
+        return <NotFound errorText={constants.unauthorized} />;
       case StatusCode.NotFound:
-        return <NotFound errorText={constants.notFound} />
+        return <NotFound errorText={constants.notFound} />;
       case StatusCode.Unexpected:
-        return <NotFound errorText={constants.unexpectedError} />
+        return <NotFound errorText={constants.unexpectedError} />;
       default:
-        return <NotFound errorText={constants.unexpectedError} />
+        return <NotFound errorText={constants.unexpectedError} />;
     }
-  }
+  };
 
-  return renderErrorBlock()
-}
+  return renderErrorBlock();
+};
 
-export default ErrorComponent
+export default ErrorComponent;

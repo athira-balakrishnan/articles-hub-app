@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
-import '@components/image/image.css'
-import SubTitle from '@components/subTitle/SubTitle'
-import LoaderCard from '@components/loaderCard/LoaderCard'
+import React, { useState } from 'react';
+import '@components/image/image.css';
+import SubTitle from '@components/subTitle/SubTitle';
+import LoaderCard from '@components/loaderCard/LoaderCard';
 
 interface ImageProp {
-  src: string
-  caption: string
-  copyright: string
+  src: string;
+  caption: string;
+  copyright: string;
 }
 
 const ImageComponent: React.FC<ImageProp> = ({ src, caption, copyright }) => {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const handleImageLoad = (): void => {
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   const handleImageError = (): void => {
-    setLoading(false)
-  }
+    setLoading(false);
+  };
 
   return (
     <div className="image-wrapper">
@@ -41,7 +41,7 @@ const ImageComponent: React.FC<ImageProp> = ({ src, caption, copyright }) => {
         </i>
       </span>
     </div>
-  )
-}
+  );
+};
 
-export default ImageComponent
+export default ImageComponent;

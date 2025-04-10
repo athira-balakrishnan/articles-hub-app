@@ -1,10 +1,10 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import ArticleList from '@src/pages/articleList/ArticleList'
-import Home from '@src/pages/home/Home'
-import NotFound from '@src/components/notFound/NotFound'
-import '@components/routes/routes.css'
-import ArticleDetails from '@src/pages/articleDetails/ArticleDetails'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import ArticleList from '@src/pages/articleList/ArticleList';
+import Home from '@src/pages/home/Home';
+import NotFound from '@src/components/notFound/NotFound';
+import '@components/routes/routes.css';
+import ArticleDetails from '@src/pages/articleDetails/ArticleDetails';
 
 const AppRouter: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ const AppRouter: React.FC = () => {
         {/* Catch-all route for 404 */}
       </Routes>
     </div>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

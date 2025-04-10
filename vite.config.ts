@@ -1,6 +1,6 @@
-import { defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 import envCompatible from 'vite-plugin-env-compatible';
 
 export default defineConfig(({ mode }) => {
@@ -28,5 +28,5 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env': env,
     },
-  }
-})
+  };
+});

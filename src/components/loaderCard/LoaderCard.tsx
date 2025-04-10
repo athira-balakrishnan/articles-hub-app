@@ -1,5 +1,5 @@
-import React from 'react'
-import '@components/loaderCard/loaderCard.css'
+import React from 'react';
+import '@components/loaderCard/loaderCard.css';
 
 const LoaderCard: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const LoaderCard: React.FC = () => {
       </div>
       <div className="loader"></div>
     </div>
-  )
-}
+  );
+};
 
-export default LoaderCard
+export default LoaderCard;

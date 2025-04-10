@@ -1,39 +1,39 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Header from '@src/components/header/Header'
-import NotFound from '@src/components/notFound/NotFound'
-import { useSelectedItem } from '@hooks/useSelectedItem'
-import Button from '@src/components/Button/Button'
-import constants from '@assets/constants.json'
-import Card from '@src/components/card/Card'
-import SectionText from '@src/components/sectionText/SectionText'
-import SubTitle from '@src/components/subTitle/SubTitle'
-import ImageComponent from '@src/components/image/Image'
-import { Media, MediaMetaData } from '@pages/articleList/ArticleList'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from '@src/components/header/Header';
+import NotFound from '@src/components/notFound/NotFound';
+import { useSelectedItem } from '@hooks/useSelectedItem';
+import Button from '@src/components/Button/Button';
+import constants from '@assets/constants.json';
+import Card from '@src/components/card/Card';
+import SectionText from '@src/components/sectionText/SectionText';
+import SubTitle from '@src/components/subTitle/SubTitle';
+import ImageComponent from '@src/components/image/Image';
+import { Media, MediaMetaData } from '@pages/articleList/ArticleList';
 
 const ArticleDetails: React.FC = () => {
-  const { selectedItem } = useSelectedItem()
-  const navigate = useNavigate()
+  const { selectedItem } = useSelectedItem();
+  const navigate = useNavigate();
 
   const getMedia = (): Media | undefined => {
     return selectedItem?.media.filter((item) => item.type === 'image')[
       constants.firstItem
-    ]
-  }
+    ];
+  };
 
-  const media: Media | undefined = getMedia()
+  const media: Media | undefined = getMedia();
 
   const getImageDetails = (): MediaMetaData | undefined => {
     return media?.['media-metadata'].filter(
       (item) => item.format === 'mediumThreeByTwo210',
-    )[constants.firstItem]
-  }
+    )[constants.firstItem];
+  };
 
   return (
     <>
       <Button
         handleClick={() => {
-          navigate('/list')
+          navigate('/list');
         }}
         styleProp={{ textDecoration: 'underline' }}
       >
@@ -55,7 +55,7 @@ const ArticleDetails: React.FC = () => {
         <NotFound />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ArticleDetails
+export default ArticleDetails;

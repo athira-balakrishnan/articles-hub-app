@@ -1,4 +1,4 @@
-import type { JestConfigWithTsJest } from 'ts-jest'
+import type { JestConfigWithTsJest } from 'ts-jest';
 
 const config: JestConfigWithTsJest = {
   preset: 'ts-jest/presets/js-with-ts', // Use ts-jest preset for TypeScript
@@ -38,6 +38,6 @@ const config: JestConfigWithTsJest = {
       statements: 80, // Minimum statements coverage percentage
     },
   },
-}
+};
 
-export default config
+export default config;

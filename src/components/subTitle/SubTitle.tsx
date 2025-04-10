@@ -1,12 +1,12 @@
-import React from 'react'
-import '@components/subTitle/subTitle.css'
+import React from 'react';
+import '@components/subTitle/subTitle.css';
 
 interface SubTitleProp {
-  children: string
+  children: string;
 }
 
 const SubTitle: React.FC<SubTitleProp> = ({ children }) => {
-  return <span className="subtitle-wrapper">{children}</span>
-}
+  return <span className="subtitle-wrapper">{children}</span>;
+};
 
-export default SubTitle
+export default SubTitle;

@@ -82,8 +82,7 @@ export default tseslint.config(
       ],
 
       // Prettier integration
-      'prettier/prettier': ['error', { singleQuote: true, semi: false }],  // You can customize Prettier settings as needed
-
+      'prettier/prettier': ['error', { singleQuote: true, semi: true }],  
     },
   },
 )

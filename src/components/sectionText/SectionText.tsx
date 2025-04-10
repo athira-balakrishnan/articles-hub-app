@@ -1,12 +1,12 @@
-import React, { ReactElement } from 'react'
-import '@components/sectionText/sectionText.css'
+import React, { ReactElement } from 'react';
+import '@components/sectionText/sectionText.css';
 
 interface SectionTextProp {
-  children: string | ReactElement
+  children: string | ReactElement;
 }
 
 const SectionText: React.FC<SectionTextProp> = ({ children }) => {
-  return <div className="sectiontext-wrapper">{children}</div>
-}
+  return <div className="sectiontext-wrapper">{children}</div>;
+};
 
-export default SectionText
+export default SectionText;

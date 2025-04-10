@@ -1,9 +1,9 @@
-import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import AppRouter from '@src/components/routes/Routes'
-import Nav from '@src/components/nav/Nav'
-import '@src/App.css'
-import { SelectedItemProvider } from '@src/context/SelectedItemProvider'
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRouter from '@src/components/routes/Routes';
+import Nav from '@src/components/nav/Nav';
+import '@src/App.css';
+import { SelectedItemProvider } from '@src/context/SelectedItemProvider';
 
 const App: React.FC = () => {
   return (
@@ -17,7 +17,7 @@ const App: React.FC = () => {
         </Router>
       </SelectedItemProvider>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

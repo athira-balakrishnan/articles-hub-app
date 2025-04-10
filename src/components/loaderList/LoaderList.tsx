@@ -1,6 +1,6 @@
-import React from 'react'
-import LoaderCard from '@components/loaderCard/LoaderCard'
-import '@components/loaderList/loaderList.css'
+import React from 'react';
+import LoaderCard from '@components/loaderCard/LoaderCard';
+import '@components/loaderList/loaderList.css';
 
 const LoaderList: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const LoaderList: React.FC = () => {
       <LoaderCard />
       <LoaderCard />
     </div>
-  )
-}
+  );
+};
 
-export default LoaderList
+export default LoaderList;
