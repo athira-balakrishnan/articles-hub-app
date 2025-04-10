@@ -23,7 +23,7 @@ To get started with this project, follow the steps below:
 
    This will start the development server at http://localhost:3000.
 
-3. **Scripts**
+4. **Scripts**
 
     * npm run dev: Starts the development server.
     * npm run build: Builds the application for production.
