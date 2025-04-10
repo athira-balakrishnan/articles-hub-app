@@ -9,10 +9,25 @@ import Card from '@src/components/card/Card'
 import SectionText from '@src/components/sectionText/SectionText'
 import SubTitle from '@src/components/subTitle/SubTitle'
 import ImageComponent from '@src/components/image/Image'
+import { Media, MediaMetaData } from '@pages/articleList/ArticleList'
 
 const ArticleDetails: React.FC = () => {
   const { selectedItem } = useSelectedItem()
   const navigate = useNavigate()
+
+  const getMedia = (): Media | undefined => {
+    return selectedItem?.media.filter((item) => item.type === 'image')[
+      constants.firstItem
+    ]
+  }
+
+  const media: Media | undefined = getMedia()
+
+  const getImageDetails = (): MediaMetaData | undefined => {
+    return media?.['media-metadata'].filter(
+      (item) => item.format === 'mediumThreeByTwo210',
+    )[constants.firstItem]
+  }
 
   return (
     <>
@@ -24,14 +39,14 @@ const ArticleDetails: React.FC = () => {
       >
         <>{constants.back}</>
       </Button>
-      {selectedItem ? (
+      {selectedItem && media ? (
         <Card>
           <Header>{selectedItem.title}</Header>
           <SubTitle>{`${selectedItem.type} | ${selectedItem.source} | ${selectedItem.published_date} | ${selectedItem.section} | ${selectedItem.subsection} `}</SubTitle>
           <ImageComponent
-            src={selectedItem.media[0]['media-metadata'][2].url}
-            copyright={selectedItem.media[0].copyright}
-            caption={selectedItem.media[0].caption}
+            src={getImageDetails()?.url || ''}
+            copyright={media.copyright}
+            caption={media.caption}
           />
           <SectionText>{selectedItem.abstract}</SectionText>
           <SubTitle>{`Updated on ${selectedItem.updated} ${selectedItem.byline}`}</SubTitle>

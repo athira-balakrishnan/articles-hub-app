@@ -24,14 +24,14 @@ export interface Article {
   media: Media[]
 }
 
-interface Media {
+export interface Media {
   type: string
   caption: string
   copyright: string
   'media-metadata': MediaMetaData[]
 }
 
-interface MediaMetaData {
+export interface MediaMetaData {
   url: string
   format: string
   height: number
