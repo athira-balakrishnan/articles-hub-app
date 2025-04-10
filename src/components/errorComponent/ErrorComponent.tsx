@@ -12,9 +12,9 @@ export interface ErrorType {
 }
 
 enum StatusCode {
-  Unauthorized = 401,
-  NotFound = 404,
-  Unexpected = 500,
+  Unauthorized = constants.unauthorizedErrorCode,
+  NotFound = constants.notFoundErrorCode,
+  Unexpected = constants.unexpectedErrorCode,
 }
 
 const ErrorComponent: React.FC<ErrorProp> = ({ error }) => {

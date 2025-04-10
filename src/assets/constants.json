@@ -2,7 +2,10 @@
     "articleListHeading": "NY Times Most Popular Articles",
     "notFound" : "Oops! Resource Not Found",
     "unauthorized" : "Oops! You are not authorized to view this resource",
+    "unexpectedError": "An unexpected error occurred",
+    "notFoundErrorCode" : 404,
+    "unauthorizedErrorCode" : 401,
+    "unexpectedErrorCode": 500,
     "MVdescription": "Explore the latest and most popular articles, curated based on the highest views, to keep you informed and engaged.",
-    "back": "Go Back",
-    "unexpectedError": "An unexpected error occurred"
+    "back": "Go Back"
 }

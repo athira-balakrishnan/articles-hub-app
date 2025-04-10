@@ -1,8 +1,13 @@
 import axiosInstance from './axiosInstance'
 import axios from 'axios'
 import constants from '@assets/constants.json'
+import { Article } from '@src/pages/articleList/ArticleList'
 
-const handleError = (error: Error | unknown) => {
+interface GetDataType {
+  results: Article[]
+}
+
+const handleError = (error: Error | unknown): void => {
   if (axios.isAxiosError(error)) {
     throw { message: error.message, response: error.response }
   } else {
@@ -11,7 +16,7 @@ const handleError = (error: Error | unknown) => {
 }
 
 // GET requests
-export const getData = async (url: string) => {
+export const getData = async (url: string): Promise<GetDataType | void> => {
   const params = {
     'api-key': import.meta.env.VITE_API_KEY,
   }

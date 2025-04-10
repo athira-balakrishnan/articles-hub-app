@@ -1,7 +1,7 @@
 import {
   SelectedItemContext,
   SelectedItemContextType,
-} from '@src/context/SelectedItemContext'
+} from '@context/selectedItemContext'
 import { useContext } from 'react'
 
 export const useSelectedItem = (): SelectedItemContextType => {

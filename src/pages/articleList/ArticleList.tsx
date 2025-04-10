@@ -8,9 +8,7 @@ import apiEndpoints from '@apis/apiEndpoints.json'
 import SectionText from '@components/sectionText/SectionText'
 import LoaderList from '@components/loaderList/LoaderList'
 import { getData } from '@apis/apiWrapper'
-import ErrorComponent, {
-  ErrorType,
-} from '@components/errorComponent/ErrorComponent'
+import ErrorComponent from '@components/errorComponent/ErrorComponent'
 
 export interface Article {
   id: number
@@ -72,21 +70,23 @@ const ArticleList: React.FC = () => {
           'media-metadata': getMetadata(mediaItem['media-metadata']),
         }))
 
-      const results: Article[] = data.results.map((item: Article) => ({
-        id: item.id,
-        title: item.title,
-        type: item.type,
-        source: item.source,
-        published_date: item.published_date,
-        abstract: item.abstract,
-        updated: item.updated,
-        byline: item.byline,
-        section: item.section,
-        subsection: item.subsection,
-        media: getMedia(item.media),
-      }))
-      setArticles(results)
-    } catch (err: ErrorType | unknown) {
+      if (data) {
+        const results: Article[] = data.results.map((item: Article) => ({
+          id: item.id,
+          title: item.title,
+          type: item.type,
+          source: item.source,
+          published_date: item.published_date,
+          abstract: item.abstract,
+          updated: item.updated,
+          byline: item.byline,
+          section: item.section,
+          subsection: item.subsection,
+          media: getMedia(item.media),
+        }))
+        setArticles(results)
+      }
+    } catch (err: unknown) {
       setErrorInData(true)
       if (err instanceof Error) {
         setError(err)
@@ -121,7 +121,7 @@ const ArticleList: React.FC = () => {
           {
             return (
               <div key={`card${article.id}`}>
-                <Card>
+                <Card clickable>
                   <ArticleCard
                     articleCardDetails={article}
                     handleRoute={handleRoute}

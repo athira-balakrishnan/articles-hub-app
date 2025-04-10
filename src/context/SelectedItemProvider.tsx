@@ -1,13 +1,6 @@
 import { Article } from '@src/pages/articleList/ArticleList'
-import React, { createContext, useState, ReactNode } from 'react'
-
-export interface SelectedItemContextType {
-  selectedItem: Article | null
-  selectItem: (item: Article) => void
-}
-
-export const SelectedItemContext =
-  createContext<SelectedItemContextType | null>(null)
+import React, { useState, ReactNode } from 'react'
+import { SelectedItemContext } from '@context/selectedItemContext'
 
 export const SelectedItemProvider: React.FC<{ children: ReactNode }> = ({
   children,

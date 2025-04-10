@@ -17,7 +17,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   const { selectItem } = useSelectedItem()
 
-  const updateContext = () => {
+  const updateContext = (): void => {
     selectItem(articleCardDetails)
     handleRoute()
   }
