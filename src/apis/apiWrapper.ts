@@ -2,6 +2,7 @@ import axiosInstance from './axiosInstance'
 import axios from 'axios'
 import constants from '@assets/constants.json'
 import { Article } from '@src/pages/articleList/ArticleList'
+import {API_KEY} from '@assets/envVariables';
 
 interface GetDataType {
   results: Article[]
@@ -18,7 +19,7 @@ const handleError = (error: Error | unknown): void => {
 // GET requests
 export const getData = async (url: string): Promise<GetDataType | void> => {
   const params = {
-    'api-key': import.meta.env.VITE_API_KEY,
+    'api-key': API_KEY,
   }
 
   try {
