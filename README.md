@@ -25,12 +25,12 @@ To get started with this project, follow the steps below:
 
 3. **Scripts**
 
-    npm run dev: Starts the development server.
-    npm run build: Builds the application for production.
-    npm run lint: Runs ESLint to check for code quality issues.
-    npm run lint:fix: Runs ESLint to check for code quality issues and fixes issues that are fixable with --fix
-    npm run test: Execute test cases and provide details of test suites.
-    npm run test:ci: Provides the test coverage report.
+    * npm run dev: Starts the development server.
+    * npm run build: Builds the application for production.
+    * npm run lint: Runs ESLint to check for code quality issues.
+    * npm run lint:fix: Runs ESLint to check for code quality issues and fixes issues that are fixable with --fix
+    * npm run test: Execute test cases and provide details of test suites.
+    * npm run test:ci: Provides the test coverage report.
 
    
    
